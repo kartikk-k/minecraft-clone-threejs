@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { usePlane } from "@react-three/cannon";
 import { groundTexture } from '../textures'
 import { NearestFilter, RepeatWrapping } from 'three'
 import { useStore } from '../hooks/useStore'
+import useKeyboard from '../hooks/useKeyboard';
 
 const Ground = () => {
     const [ref] = usePlane(() => ({
@@ -15,6 +16,7 @@ const Ground = () => {
     groundTexture.repeat.set(100, 100)
 
     const [addCube] = useStore((state) => [state.addCube])
+
 
     return (
         <mesh ref={ref}
