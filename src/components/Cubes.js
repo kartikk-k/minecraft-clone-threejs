@@ -1,5 +1,5 @@
 import { useStore } from "../hooks/useStore"
-import Block from "./Block"
+import Cube from "./Cube"
 
 
 
@@ -8,9 +8,8 @@ const Cubes = () => {
         state.cubes
     ])
 
-    console.log("cubes: ", cubes)
     return cubes.map(({ key, position, texture }) => (
-        <Block key={key} position={position} texture={texture} />
+        <Cube key={key} position={position} texture={texture} />
     ))
 }
 

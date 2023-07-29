@@ -11,7 +11,6 @@ const SPEED = 4
 const Player = () => {
 
     const actions = useKeyboard()
-    console.log("actions", Object.entries(actions).filter(([k, v]) => v))
 
     const { camera } = useThree()
     const [ref, api] = useSphere(() => ({
@@ -62,7 +61,7 @@ const Player = () => {
         api.velocity.set(direction.x, velocity.current[1], direction.z)
 
         // handles player jump by changing the y velocity
-        if (actions.jump && Math.abs(velocity.current[1] < 0.05)) {
+        if (actions.jump && Math.abs(velocity.current[1] < 0)) {
             api.velocity.set(velocity.current[0], JUMP_VELOCITY, velocity.current[2])
         }
 

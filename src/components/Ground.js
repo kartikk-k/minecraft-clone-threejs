@@ -1,21 +1,29 @@
 import React from 'react';
 import { usePlane } from "@react-three/cannon";
 import { groundTexture } from '../textures'
-import { NearestFilter, RepeatWrapping } from 'three';
+import { NearestFilter, RepeatWrapping } from 'three'
+import { useStore } from '../hooks/useStore'
 
 const Ground = () => {
     const [ref] = usePlane(() => ({
         rotation: [-Math.PI / 2, 0, 0], // 90 degrees
-        position: [0, 0, 0],
+        position: [0, -0.5, 0],
     }))
 
     groundTexture.wrapS = RepeatWrapping
     groundTexture.wrapT = RepeatWrapping
     groundTexture.repeat.set(100, 100)
 
+    const [addCube] = useStore((state) => [state.addCube])
 
     return (
-        <mesh ref={ref} >
+        <mesh ref={ref}
+            onClick={(e) => {
+                e.stopPropagation() // to avoid default click behavior
+                const [x, y, z] = Object.values(e.point).map(val => Math.ceil(val))
+                addCube(x, y, z)
+
+            }}>
 
             {/* creates a plane geometry for the ground mesh. */}
             <planeGeometry attach="geometry" args={[100, 100]} />
