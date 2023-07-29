@@ -10,7 +10,7 @@ function App() {
       <Canvas className='canvas'>
 
         <Sky sunPosition={[100, 100, 20]} />
-        <ambientLight intensity={0.5} />
+        <ambientLight intensity={1} />
 
         <Physics>
           <Ground />
