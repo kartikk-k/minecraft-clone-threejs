@@ -21,8 +21,8 @@ function actionByKey(key) {
         Digit1: 'dirt',
         Digit2: 'grass',
         Digit3: 'brick',
-        Digit4: 'log',
-        Digit5: 'wood'
+        Digit4: 'wood',
+        Digit5: 'log'
     }
 
     return keyActionMap[key]
@@ -35,11 +35,11 @@ const useKeyboard = () => {
         moveLeft: false,
         moveRight: false,
         jump: false,
-        texture1: false,
-        texture2: false,
-        texture3: false,
-        texture4: false,
-        texture5: false,
+        dirt: false,
+        grass: false,
+        brick: false,
+        log: false,
+        wood: false,
     });
 
 

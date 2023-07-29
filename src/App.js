@@ -6,6 +6,7 @@ import Ground from './components/Ground';
 import Player from './components/Player';
 import FPV from './components/FPV';
 import Cubes from './components/Cubes';
+import TextureSelector from './components/TextureSelector';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
 
       {/* fpv cursor */}
       <div className='fpv-cursor'>⌖</div>
+      <TextureSelector />
 
     </>
   );
